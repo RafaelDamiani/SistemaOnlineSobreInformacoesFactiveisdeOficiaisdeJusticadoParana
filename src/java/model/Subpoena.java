@@ -13,11 +13,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tb_summons")
 @SequenceGenerator(name = "seq_summons", sequenceName = "seq_summons_id")
-public class Summons implements Serializable {
+public class Subpoena implements Serializable {
     private Long id;
     private Date date;
     
-    public Summons() {
+    public Subpoena() {
     }
     
     @Id
