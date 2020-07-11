@@ -23,8 +23,8 @@ create table tb_subpoena(
 	subpoena_name varchar(255) not null,
 	subpoena_execution_date timestamp null,	
 	subpoena_status bit not null,
-	probation_officer bigint not null REFERENCES tb_user(id),
-	subpoena_prosecution bigint not null
+	subpoena_prosecution bigint not null,
+	probation_officer bigint not null REFERENCES tb_user(id)
 );
 
 create table tb_address(
