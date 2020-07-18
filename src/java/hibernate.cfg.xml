@@ -49,5 +49,6 @@ Contributor(s):
     <mapping class="model.User"/>
     <mapping class="model.UserType"/>
     <mapping class="model.Subpoena"/>
+    <mapping class="model.Address"/>
   </session-factory>
 </hibernate-configuration>

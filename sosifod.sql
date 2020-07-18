@@ -22,7 +22,7 @@ create table tb_subpoena(
 	subpoena_cpf varchar(11) not null,
 	subpoena_name varchar(255) not null,
 	subpoena_execution_date timestamp null,	
-	subpoena_status bit not null,
+	subpoena_status boolean not null,
 	subpoena_prosecution bigint not null,
 	probation_officer_id bigint not null REFERENCES tb_user(id)
 );
