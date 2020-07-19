@@ -26,7 +26,7 @@ and open the template in the editor.
 }
 
 .btn-entrar{
-    float: right;
+    text-align: center;
     font-size: 14px;
     background-color: #15f163;
     color: #fff;
