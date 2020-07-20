@@ -2,6 +2,7 @@ package mb;
 
 import java.security.NoSuchAlgorithmException;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import model.User;
 import model.UserType;
@@ -14,6 +15,9 @@ import validator.UserValidator;
 @Named(value = "registerMB")
 @RequestScoped
 public class RegisterMB {
+    @Inject
+    private LoginMB loginMB;
+    
     private String email;
     private String password;
     private String name;

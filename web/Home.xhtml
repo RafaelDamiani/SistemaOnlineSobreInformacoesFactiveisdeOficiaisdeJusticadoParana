@@ -12,7 +12,7 @@
         <b:navBar brand="SOSIFODE" brandHref="./Home.xhtml" id="dropMenuExample" contentDisabled="#{navBarBean.navBarDisabled}">
             <b:navbarLinks style="width: 90%;" contentDisabled="#{navBarBean.navBarLinksDisabled}">
                 <b:navLink value="Home" href="./Home.xhtml"></b:navLink>
-                <b:navLink value="Processos" href="./listar.xhtml"></b:navLink>
+                <b:navLink value="Intimações" href="./ListaIntimacao.xhtml"></b:navLink>
                 <b:dropMenu style="float: right;" iconAwesome="user" styleClass="dropmenu" value="" contentDisabled="#{navBarBean.dropMenuDisabled}">
                     <b:navLink value="Perfil" href="./Perfil.xhtml"></b:navLink>
                     <b:navLink value="Alterar Senha" href="./Alterarpass.xhtml"></b:navLink>
@@ -25,14 +25,9 @@
             <span styleClass="titlecadast"><b></b></span>
             <h:form>
                 <b:panelGrid colSpans="6,6" size="sm">
-                    <b:navLink styleClass="process" value="" href="./ListaProcessos.xhtml">
-                        <b:row styleClass="boxhome">
-                            <b style="padding: 10px; font-size: 20px">Lista de intimações </b><br/>
-                        </b:row>
-                    </b:navLink>
                     <b:navLink styleClass="process" value="" href="./ListaIntimacao.xhtml">
                         <b:row styleClass="boxhome">
-                            <b style="padding: 10px; font-size: 20px">Processo em Execução</b><br/>
+                            <b style="padding: 10px; font-size: 20px">Lista de intimações </b><br/>
                         </b:row>
                     </b:navLink>
                 </b:panelGrid>
