@@ -1,12 +1,31 @@
 <?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:b="http://bootsfaces.net/ui">
     <h:head>
-        <title>Facelet Title</title>
+        <title>SOSIFOD</title>
+        <meta name="author" content="Lucas Moroski - Damiani"></meta>
+        <link rel="StyleSheet" type="text/css" href="css/estilo.css" media="screen" />
     </h:head>
-    <h:body>
-        Hello from Facelets
+    <h:body style="background-color: #c2c2c259;">
+        <hr/>
+        <b:form styleClass="painelog" horizontal="true">
+            <span ><h2><b styleClass="titlelog">Login</b></h2></span>
+
+            <b:inputText styleClass="inputcss" value="#{loginMB.email}" placeholder="email@gmail.com" label="E-mail:" colMd="10" labelColMd="2">
+                <f:facet name="prepend">
+                    <b:icon name="user" />
+                </f:facet>
+            </b:inputText>
+            <b:inputSecret placeholder="" value="#{loginMB.password}" label="Senha:" colMd="10" labelColMd="2">
+                <f:facet name="prepend">
+                    <b:iconAwesome name="key" />
+                </f:facet>
+            </b:inputSecret>
+            <b:message for="passwordDiv" />
+            <b:commandButton styleClass="btn-entrar" action="#{loginMB.logar()}" look="#c2c2c2" value="Entrar" size="sm" ></b:commandButton>
+        </b:form>
     </h:body>
 </html>
-
