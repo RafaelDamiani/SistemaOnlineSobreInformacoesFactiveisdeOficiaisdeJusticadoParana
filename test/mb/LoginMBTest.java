@@ -32,7 +32,7 @@ public class LoginMBTest {
     @Test
     public void testLoginSuccess() throws NoSuchAlgorithmException {        
         LoginMB login = new LoginMB();
-        login.setEmail("rafael.damiani@ufpr.br");
+        login.setEmail("lucasmoroskicurso@gmail.com");
         login.setPassword("123456");
         String expResult = "Logando";
         String result = login.logar();
@@ -42,7 +42,7 @@ public class LoginMBTest {
     @Test
     public void testLoginFailedPWD() throws NoSuchAlgorithmException {        
         LoginMB login = new LoginMB();
-        login.setEmail("rafael.damiani@ufpr.br");
+        login.setEmail("lucasmoroskicurso@gmail.com");
         login.setPassword("1234567");
         String expResult = "E-mail ou senha incorretos";
         String result = login.logar();
@@ -52,7 +52,7 @@ public class LoginMBTest {
     @Test
     public void testLoginFailedEmail() throws NoSuchAlgorithmException {        
         LoginMB login = new LoginMB();
-        login.setEmail("rafael.damiani@ufpr.com.br");
+        login.setEmail("lucasmoroskicurso@gmail.com");
         login.setPassword("123456");
         String expResult = "E-mail ou senha incorretos";
         String result = login.logar();
@@ -81,7 +81,7 @@ public class LoginMBTest {
     @Test
     public void testLoginFailedPWDNull() throws NoSuchAlgorithmException {        
         LoginMB login = new LoginMB();
-        login.setEmail("rafael.damiani@ufpr.com.br");
+        login.setEmail("lucasmoroskicurso@gmail.com");
         String expResult = "Preencha a senha";
         String result = login.logar();
         assertEquals(expResult, result);
@@ -90,7 +90,7 @@ public class LoginMBTest {
     @Test
     public void testLoginFailedPWDEmpty() throws NoSuchAlgorithmException {        
         LoginMB login = new LoginMB();
-        login.setEmail("rafael.damiani@ufpr.com.br");
+        login.setEmail("lucasmoroskicurso@gmail.com");
         login.setPassword("");
         String expResult = "Preencha a senha";
         String result = login.logar();

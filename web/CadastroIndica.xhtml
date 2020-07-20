@@ -12,7 +12,7 @@
         <b:navBar brand="SOSIFOD" brandHref="./Home.xhtml" id="dropMenuExample" contentDisabled="#{navBarBean.navBarDisabled}">
             <b:navbarLinks style="width: 90%;" contentDisabled="#{navBarBean.navBarLinksDisabled}">
                 <b:navLink value="Home" href="./Home.xhtml"></b:navLink>
-                <b:navLink value="Processos" href="./listar.xhtml"></b:navLink>
+                <b:navLink value="Intimações" href="./ListaIntimacao.xhtml"></b:navLink>
                 <b:dropMenu style="float: right;" iconAwesome="user" styleClass="dropmenu" value="" contentDisabled="#{navBarBean.dropMenuDisabled}">
                     <b:navLink value="Perfil" href="./Perfil.xhtml"></b:navLink>
                     <b:navLink value="Alterar Senha" href="./Alterarpass.xhtml"></b:navLink>
@@ -22,52 +22,43 @@
             </b:navbarLinks>
         </b:navBar>
         <b:row styleClass="box-cadastroproc">
-            <span styleClass="titlecadast"><b>Editar Processo</b></span>
+            <span styleClass="titlecadast"><b>Intimação</b></span>
             <hr/>
             <b:form >
                 <b:panelGrid columns="1">
-                    <b:inputText label="Título do Processo" render-label="true"/>
+                    <b:inputText label="Nome do intimado" render-label="true"/>
                 </b:panelGrid>
                 <b:panelGrid columns="2">
-                    <b:inputText mask="dd.mm.yyyy" label="Data do Processo" render-label="true"/>
-                    <b:selectOneMenu value="#{selectOneMenuBean.type}" label="Cargo:" >
+                    <b:inputText value="" styleClass="inputcadast" mask="999.999.999-99" label="CPF " />
+                    <b:inputText value="" styleClass="inputcadast" mask="integer" label="CEP" render-label="true"/>  
+                    <b:inputText value="" label="Cidade" render-label="true"/>  
+                    <b:inputText value="" label="Estado" render-label="true"/>   
+                    <b:inputText value="" label="Endereço" render-label="true"/>  
+                    <b:inputText value="" styleClass="inputcadast" mask="integer" label="Numero Residencial" render-label="true"/>   
+                    <b:inputText value="" label="Estado Intimação" render-label="true"/>   
+                </b:panelGrid>
+                <b:panelGrid columns="2">
+                    <b:dateTimePicker format="DD/MM/YYYY" locale="pt" value="#{dateTimeBean.justNow}" render-label="true" label="Data da Intimação"  />
+                </b:panelGrid>
+                <b:button styleClass="btn-salvar" style="float: right;" look="#c2c2c2" value="Salvar Alteração" size="sm"/>
+            </b:form>
+        </b:row>
+
+        <b:row styleClass="box-cadastroproc">
+            <b:form >
+                <span styleClass="titlecadast"><b>Indicar Execução</b></span>
+                <hr/>
+                <b:panelGrid columns="2">
+                    <b:dateTimePicker    format="DD/MM/YYYY" locale="pt" value="#{dateTimeBean.justNow}" render-label="true" label="Data da Execução"  />
+<!--                    <b:selectOneMenu value="#{selectOneMenuBean.type}" label="Lista de Juizes Para Indicação" >
                         <f:selectItem itemLabel="Selecionar" itemValue="" />
                         <f:selectItem itemLabel="Admin" itemValue="1" />
                         <f:selectItem itemLabel="Advogado" itemValue="2" />
                         <f:selectItem itemLabel="Juiz" itemValue="3" />
                         <f:selectItem itemLabel="Parte" itemValue="4" />
-                    </b:selectOneMenu>  
+                    </b:selectOneMenu>-->
                 </b:panelGrid>
-                <b:panelGrid columns="2">
-                    <b:inputTextarea placeholder="Justificativa do seu processo." label="Justificativa">
-                    </b:inputTextarea>
-                    <b:inputTextarea placeholder="Descrilção basicas do seu processo." label="Descrição">
-                    </b:inputTextarea>
-                </b:panelGrid>
-            </b:form>
-            <b:dataTable value="title" var="fase">
-                <b:dataTableColumn value="fase.title" width="100"/>
-                <b:dataTableColumn value="date" width="50"/>
-                <b:dataTableColumn value="descricao" width="150"/>
-                <b:dataTableColumn value="justificativa" width="150"/>
-                <b:dataTableColumn value="processo" width="100"/>
-                <b:dataTableColumn value="advogado" width="50"/>
-                <b:dataTableColumn value="tipo fase" width="10vw"/>
-                <b:dataTableColumn value="phase status" width="10rem"/>
-                <b:dataTableColumn value="status fase" width="10%"/>
-            </b:dataTable>
-        </b:row>
-        <b:row styleClass="box-cadastroproc">
-            <b:form >
-                <hr/>    
-                <b:selectOneMenu value="#{selectOneMenuBean.type}" label="Lista de Juizes Para Indicação" >
-                    <f:selectItem itemLabel="Selecionar" itemValue="" />
-                    <f:selectItem itemLabel="Admin" itemValue="1" />
-                    <f:selectItem itemLabel="Advogado" itemValue="2" />
-                    <f:selectItem itemLabel="Juiz" itemValue="3" />
-                    <f:selectItem itemLabel="Parte" itemValue="4" />
-                </b:selectOneMenu>
-                <b:button styleClass="btn-salvar" style="float: right;" look="#c2c2c2" value="Indicar Juiz" size="sm"/>
+                <b:button styleClass="btn-salvar" style="float: right;" look="#c2c2c2" value="Indicar" size="sm"/>
             </b:form>
         </b:row>
     </h:body>

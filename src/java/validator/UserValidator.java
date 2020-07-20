@@ -46,7 +46,7 @@ public class UserValidator {
             return "Preencha o CPF";
         }
         
-        if (cpf.length() < 11) {
+        if (cpf.length() < 11 || cpf.length() > 14) {
             setValid(false);
             return "O CPF deve ter 11 caracteres";
         }
