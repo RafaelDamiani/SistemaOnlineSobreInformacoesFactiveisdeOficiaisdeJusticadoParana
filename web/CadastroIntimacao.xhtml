@@ -26,24 +26,23 @@
             <hr/>
             <b:form >
                 <b:panelGrid columns="2">
-                    <b:inputText value="#{subpoenaMB.date}" mask="dd.mm.yyyy" label="Data da Intimação" render-label="true"/>
+                    <b:inputText value="#{subpoenaMB.dateStr}" label="Data da Intimação" render-label="true"/>
                     <b:inputText value="#{subpoenaMB.name}" label="Nome" render-label="true"/>
                     <b:inputText value="#{subpoenaMB.cpf}" label="CPF" render-label="true"/>
-                    <b:dateTimePicker value="#{subpoenaMB.executionDate}" label="Data de Execução" />
+                    <b:dateTimePicker  value="#{subpoenaMB.executionDate}" label="Data de Execução" />
                 </b:panelGrid>
+                <b:commandButton action="#{subpoenaMB.updateSubpoena}" onclick="sendRequest(#{subpoenaMB.id})" styleClass="btn-salvar" style="float: right;" look="#c2c2c2" value="Salvar Indicação" size="sm"/>
             </b:form>
-            <b:commandButton action="#{subpoenaMB.updateSubpoena}" onclick="sendRequest(#{subpoenaMB.id})" styleClass="btn-salvar" style="float: right;" look="#c2c2c2" value="Salvar Indicação" size="sm"/>
         </b:row>
     </h:body>
     
     <script>
         function sendRequest(id) {
-            $http.post('http://localhost:8080/SIJOGA/webresources/phase', `prosecution=${ encodeURIComponent(id) }`
+            $http.post('http://localhost:8080/SIJOGA/webresources/phase', `prosecution=${id}`
             ).success(function (data) {
                 console.log('sucesso')
             }
         }
-            
     </script>
 </html>
 

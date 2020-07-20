@@ -23,11 +23,13 @@ public class SubpoenaMB implements Serializable {
     private boolean error;
     private String responseMessage;
     
+    private String dateStr;
     private Date date = new Date();
     private Long Id;
     private String cpf;
     private String name;
-    private Date executionDate;
+    private String executionDate;
+    private Date execDate = new Date();
     private User probaitonOfficer;
     private Long prosecution; 
     private boolean status;
@@ -65,6 +67,14 @@ public class SubpoenaMB implements Serializable {
         this.responseMessage = responseMessage;
     }
 
+    public String getDateStr() {
+        return dateStr;
+    }
+
+    public void setDateStr(String dateStr) {
+        this.dateStr = dateStr;
+    }
+
     public Date getDate() {
         return date;
     }
@@ -97,12 +107,20 @@ public class SubpoenaMB implements Serializable {
         this.name = name;
     }
 
-    public Date getExecutionDate() {
+    public String getExecutionDate() {
         return executionDate;
     }
 
-    public void setExecutionDate(Date executionDate) {
+    public void setExecutionDate(String executionDate) {
         this.executionDate = executionDate;
+    }
+
+    public Date getExecDate() {
+        return execDate;
+    }
+
+    public void setExecDate(Date execDate) {
+        this.execDate = execDate;
     }
 
     public User getProbaitonOfficer() {
@@ -129,11 +147,10 @@ public class SubpoenaMB implements Serializable {
         this.status = status;
     }
     
-    public String updatePhase() {
+    public String updateSubpoena() {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         
-        boolean valid = true;
         String response = "";
         
         setError(false);
@@ -141,11 +158,12 @@ public class SubpoenaMB implements Serializable {
         
         Subpoena subpoena = new Subpoena();
         
+        
         subpoena.setId(Id);
         subpoena.setDate(date);
         subpoena.setCpf(cpf);
         subpoena.setName(name);
-        subpoena.setExecutionDate(executionDate);
+        subpoena.setExecutionDate(date);
         subpoena.setProbationOfficer(probaitonOfficer);
         subpoena.setProsecution(prosecution);
         subpoena.setStatus(status);
@@ -186,10 +204,10 @@ public class SubpoenaMB implements Serializable {
         Subpoena subpoena = (Subpoena)query.uniqueResult();
         
         setId(subpoena.getId());
-        setDate(subpoena.getDate());
+        setDateStr(subpoena.getDate().toString());
+        //setDate(subpoena.getDate());
         setCpf(subpoena.getCpf());
         setName(subpoena.getName());
-        setExecutionDate(subpoena.getExecutionDate());
         setProbaitonOfficer(subpoena.getProbationOfficer());
         setProsecution(subpoena.getProsecution());
         setStatus(subpoena.isStatus());
@@ -199,4 +217,5 @@ public class SubpoenaMB implements Serializable {
         
         return "/CadastroIntimacao.xhtml";    
     }
+    
 }

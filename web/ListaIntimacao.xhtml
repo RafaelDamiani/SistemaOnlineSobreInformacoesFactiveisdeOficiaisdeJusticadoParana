@@ -25,7 +25,7 @@
             <span styleClass="titlecadast"><b>Intimações</b></span>
             <br/>
             <h:form>
-                <b:dataTable value="#{subpoenaMB.indexSubpoena()}" var="subpoenas" id="subpoenas">
+                <b:dataTable value="#{subpoenaMB.indexSubpoena()}" var="subpoenas" id="subpoenas" pdf="true">
                     <b:dataTableColumn value="#{subpoenas[0]}" label="Id" width="1rem"/>
                     <b:dataTableColumn value="#{subpoenas[1]}" label="Data" width="10rem"/>
                     <b:dataTableColumn value="#{subpoenas[2]}" label="CPF" width="10rem"/>
